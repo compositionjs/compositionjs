@@ -88,19 +88,19 @@ This function runs through the entire CompositionJS process with the following s
 3. Adds the class name to the provided element
 4. Adds the styles to the document
 
-Property | Type | Required | Default | Description
---- | --- | ---
-**styles** | `object` | `true` | | Object of CSS properties
-**element** | `HTMLElement` | `false` | | HTML element to apply the properties to
+| Property | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| **styles** | `object` | `true` | | Object of CSS properties |
+| **element** | `HTMLElement` | `false` | | HTML element to apply the properties to |
 
 ### `objectToCssLoop()`
 
 This function is used by `css()` and creates a string of CSS with a unique id as the base class name.
 
-Property | Type | Required | Default | Description
---- | --- | ---
-**object** | `object` | `true` | | Object of CSS properties
-**element** | `string` | `false` | | Starting identifier to wrap the properties in
+| Property | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| **object** | `object` | `true` | | Object of CSS properties |
+| **element** | `string` | `false` | | Starting identifier to wrap the properties in |
 
 ## Optimizations
 
