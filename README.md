@@ -22,7 +22,7 @@ yarn add @compositionjs/core
 ES6 import:
 
 ```js
-import { css } from '@composition/core'
+import { css } from '@compositionjs/core'
 
 const styles = {
   margin: 0,
