@@ -1,0 +1,41 @@
+{
+  "name": "@compositionjs/core",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/compositionjs/compositionjs",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "keywords": [
+    "compositionjs",
+    "composition js",
+    "css in js",
+    "css-in-js",
+    "styles",
+    "stylesheets",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsc --watch",
+    "test": "jest --passWithNoTests",
+    "build": "rm -rf dist/* && tsc"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@types/jest": "^27.0.3",
+    "babel-jest": "^27.4.5",
+    "jest": "^27.4.5"
+  },
+  "dependencies": {}
+}
