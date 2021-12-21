@@ -1,0 +1,14 @@
+{
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com/compositionjs"
+    }
+  },
+  "npmClient": "yarn",
+  "packages": [
+    "examples/*",
+    "packages/*"
+  ],
+  "useWorkspaces": true,
+  "version": "independent"
+}

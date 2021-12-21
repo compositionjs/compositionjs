@@ -1,0 +1,38 @@
+{
+  "name": "root",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/compositionjs/compositionjs"
+  },
+  "license": "MIT",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "workspaces": {
+    "packages": [
+      "examples/*",
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "postinstall": "yarn bootstrap",
+    "prebuild": "rm -rf packages/*/dist",
+    "build": "lerna run build --stream --ignore @compositionjs/example-*",
+    "lint": "lerna run lint --stream --parallel",
+    "start": "lerna run start --stream --parallel --ignore @compositionjs/example-*",
+    "test": "lerna run test --stream --parallel",
+    "publish": "yarn build && lerna publish from-package --yes --registry https://npm.pkg.github.com",
+    "cleanup": "rm -rf {node_modules,coverage}; rm -rf packages/*/{node_modules,dist,build}",
+    "regenerate-package-lock": "yarn cleanup && rm package-lock.json && yarn"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint": "^8.5.0",
+    "lerna": "^4.0.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
