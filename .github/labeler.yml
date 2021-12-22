@@ -1,0 +1,2 @@
+@compositionjs/core:
+  - packages/core/**/*
