@@ -1,6 +1,14 @@
-import { objectToCssLoop, classId } from '.'
+/**
+ * @jest-environment jsdom
+ */
+
+import { css, objectToCss, classId } from '.'
 
 describe('CSS', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="element"></div>'
+  })
+
   it('should create basic styles', () => {
     const styles = {
       backgroundColor: 'white',
@@ -10,7 +18,7 @@ describe('CSS', () => {
 
     const id = '.' + classId(styles)
 
-    const generated = objectToCssLoop(styles, id)
+    const generated = objectToCss(styles, id)
 
     expect(generated)
       .toEqual('.css1276968294{background-color:white;color:red;padding:5px;}')
@@ -26,7 +34,7 @@ describe('CSS', () => {
 
     const id = '.' + classId(styles)
 
-    const generated = objectToCssLoop(styles, id)
+    const generated = objectToCss(styles, id)
 
     expect(generated)
       .toEqual('.css1137005372{color:red;}.css1137005372:hover{color:green;}')
@@ -45,7 +53,7 @@ describe('CSS', () => {
 
     const id = '.' + classId(styles)
 
-    const generated = objectToCssLoop(styles, id)
+    const generated = objectToCss(styles, id)
 
     expect(generated)
       .toEqual(
@@ -82,12 +90,52 @@ describe('CSS', () => {
 
     const id = '.' + classId(styles)
 
-    const generated = objectToCssLoop(styles, id)
+    const generated = objectToCss(styles, id)
 
     expect(generated)
       .toEqual(
         // eslint-disable-next-line max-len
         '.css-1873586918{color:red;}.css-1873586918:hover{color:blue;}.css-1873586918:hover a{color:orange;}.css-1873586918 ul{list-style:none;}.css-1873586918 ul> li{padding:0;}.css-1873586918 ul li{padding:5px;}.css-1873586918 ul li a{text-decoration:underline;}.css-1873586918 ul li a[target="_blank"]{text-decoration:none;}'
       )
+  })
+
+  it('should create styles for hyphenated and camelcase', () => {
+    const styles = {
+      backgroundColor: 'red',
+      'background-color': 'blue',
+    }
+
+    const id = '.' + classId(styles)
+
+    const generated = objectToCss(styles, id)
+
+    expect(generated)
+      .toEqual(
+        '.css1615912088{background-color:red;background-color:blue;}'
+      )
+  })
+
+  it('should add class to the element', () => {
+    const styles = {
+      color: 'red',
+    }
+
+    css(styles, document.getElementById('element'))
+
+    expect(
+      document.getElementById('element').classList.contains('.css-1981024994')
+    ).toBeTruthy()
+  })
+
+  it('should have a style tag with the given styles', () => {
+    const styles = {
+      color: 'red',
+    }
+
+    css(styles, document.getElementById('element'))
+
+    expect(
+      document.getElementById('compositionjs-styles')?.innerHTML
+    ).toEqual('.css-1981024994{color:red;}')
   })
 })

@@ -11,8 +11,12 @@ export function checkForChanges(id: string): boolean {
 export function addCss(css: string, id: string, element?: HTMLElement): void {
   if (typeof document === 'undefined') return
 
+  const styleId = 'compositionjs-styles'
+
   const head = document.head
   const style = document.createElement('style')
+
+  style.setAttribute('id', styleId)
 
   // Add stylesheet
   head.appendChild(style)
