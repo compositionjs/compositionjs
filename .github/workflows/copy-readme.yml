@@ -1,0 +1,23 @@
+name: Copy README to docs
+on:
+  push:
+    branches: [ main ]
+    paths: 'README.md'
+    
+jobs:
+  copy_readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: Copy the README
+        run: |
+          cp "README.md" "./docs/index.md"
+          
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add README changes to docs" -a
+          git push
