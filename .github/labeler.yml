@@ -1,2 +1,2 @@
-'@compositionjs/core':
+compositionjs/core:
   - packages/core/**/*
