@@ -117,4 +117,4 @@ This function is used by to create a unique hash string based on the styles prov
 
 ### Unique Class Name
 
-The `css()` function first checks for changes in the styles automatically. If no changes are detected the function stops running. This works through the unique id that is created and used as a class name. The id is created based on the provided CSS. If styles change so does the class name. This provides the additional value of utilizing common styles for multiple elements by avoiding duplication.
+The `css()` function first checks for changes in the styles automatically. If no changes are detected the function stops running. This works through the unique id that is created (with `classId()`) and used as a class name. The id is created based on the provided CSS. If styles change so does the class name. This provides the additional value of utilizing common styles for multiple elements by avoiding duplication.
