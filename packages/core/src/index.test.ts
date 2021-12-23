@@ -69,6 +69,7 @@ describe('CSS', () => {
         color: 'blue',
         a: {
           color: 'orange',
+          display: 'flex',
         }
       },
       'ul': {
@@ -95,7 +96,7 @@ describe('CSS', () => {
     expect(generated)
       .toEqual(
         // eslint-disable-next-line max-len
-        '.css-1873586918{color:red;}.css-1873586918:hover{color:blue;}.css-1873586918:hover a{color:orange;}.css-1873586918 ul{list-style:none;}.css-1873586918 ul> li{padding:0;}.css-1873586918 ul li{padding:5px;}.css-1873586918 ul li a{text-decoration:underline;}.css-1873586918 ul li a[target="_blank"]{text-decoration:none;}'
+        '.css1708629705{color:red;}.css1708629705:hover{color:blue;}.css1708629705:hover a{color:orange;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;}.css1708629705 ul{list-style:none;}.css1708629705 ul> li{padding:0;}.css1708629705 ul li{padding:5px;}.css1708629705 ul li a{text-decoration:underline;}.css1708629705 ul li a[target="_blank"]{text-decoration:none;}'
       )
   })
 
