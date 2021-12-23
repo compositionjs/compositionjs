@@ -1,3 +1,5 @@
+import { addPrefixes } from './prefixing'
+
 export function checkForChanges(id: string): boolean {
   if (typeof document === 'undefined') return true
 
@@ -31,5 +33,10 @@ export function propertyToCss(
   property: string,
   value: string | number
 ): string {
-  return `${camelCaseToHyphen(property)}:${value};`
+  const newProperty = camelCaseToHyphen(property)
+
+  let prefixes = addPrefixes(newProperty, value)
+  prefixes += `${newProperty}:${value};`
+
+  return prefixes
 }
