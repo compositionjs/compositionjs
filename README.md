@@ -72,7 +72,10 @@ CompositionJS provides the ability to use nested styles with an easy to use synt
 const styles = {
   backgroundColor: 'blue',
   'ul': {
-    listStyle:
+    listStyle: 'none',
+    'li': {
+      padding: 0,
+    }
   }
 }
 ```
