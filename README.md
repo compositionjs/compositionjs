@@ -93,7 +93,7 @@ This function runs through the entire CompositionJS process with the following s
 | **styles** | `object` | `true` | | Object of CSS properties |
 | **element** | `HTMLElement` | `false` | | HTML element to apply the properties to |
 
-### `objectToCssLoop()`
+### `objectToCss()`
 
 This function is used by `css()` and creates a string of CSS with a unique id as the base class name.
 
@@ -101,6 +101,14 @@ This function is used by `css()` and creates a string of CSS with a unique id as
 | --- | --- | --- | --- | --- |
 | **object** | `object` | `true` | | Object of CSS properties |
 | **element** | `string` | `false` | | Starting identifier to wrap the properties in |
+
+### `classId()`
+
+This function is used by to create a unique hash string based on the styles provided. Returns prefixed with `css`
+
+| Property | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| **styles** | `object` | `true` | | Object of CSS properties |
 
 ## Optimizations
 

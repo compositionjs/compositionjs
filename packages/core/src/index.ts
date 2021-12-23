@@ -21,7 +21,7 @@ export function css(styles: CSSObject, element?: HTMLElement): void {
 
   if (!checkForChanges(id)) return
 
-  addCss(objectToCssLoop(styles, id), id, element)
+  addCss(objectToCss(styles, '.' + id), id, element)
 }
 
 /**
@@ -31,7 +31,7 @@ export function css(styles: CSSObject, element?: HTMLElement): void {
  * @param identifier Starting identifier to wrap the properties in
  *
 */
-export function objectToCssLoop(object: CSSObject, identifier: string): string {
+export function objectToCss(object: CSSObject, identifier: string): string {
   let baseStyles = `${identifier}{`
   let otherStyles = ''
 
@@ -43,9 +43,9 @@ export function objectToCssLoop(object: CSSObject, identifier: string): string {
       // Base style
       baseStyles += propertyToCss(property, value)
     } else if (startsWith.match(/^[a-zA-Z0-9.]$/)) {
-      otherStyles += objectToCssLoop(value, `${identifier} ${property}`)
+      otherStyles += objectToCss(value, `${identifier} ${property}`)
     } else {
-      otherStyles += objectToCssLoop(value, `${identifier}${property}`)
+      otherStyles += objectToCss(value, `${identifier}${property}`)
     }
   }
 
