@@ -21,6 +21,7 @@
     "build": "lerna run build --stream --ignore @compositionjs/example-*",
     "lint": "lerna run lint --stream --parallel",
     "start": "lerna run start --stream --parallel --ignore @compositionjs/example-*",
+    "start:examples:react": "yarn workspace react-app start",
     "test": "lerna run test --stream --parallel",
     "publish": "yarn build && lerna publish from-package --yes --registry https://npm.pkg.github.com",
     "cleanup": "rm -rf {node_modules,coverage}; rm -rf packages/*/{node_modules,dist,build}",
