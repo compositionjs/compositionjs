@@ -23,6 +23,7 @@
     "start": "lerna run start --stream --parallel --ignore @compositionjs/example-*",
     "start:examples:react": "yarn workspace react-app start",
     "test": "lerna run test --stream --parallel",
+    "version": "lerna version",
     "publish": "yarn build && lerna publish from-package --yes --registry https://npm.pkg.github.com --no-private",
     "cleanup": "rm -rf {node_modules,coverage}; rm -rf packages/*/{node_modules,dist,build}",
     "regenerate-package-lock": "yarn cleanup && rm package-lock.json && yarn"
