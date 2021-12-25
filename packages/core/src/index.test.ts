@@ -124,7 +124,7 @@ describe('CSS', () => {
     css(styles, document.getElementById('element'))
 
     expect(
-      document.getElementById('element').classList.contains('.css-1981024994')
+      document.getElementById('element').classList.contains('css-1981024994')
     ).toBeTruthy()
   })
 
