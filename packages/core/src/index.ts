@@ -4,7 +4,7 @@ import {
   propertyToCss,
 } from './utils'
 
-type CSSObject = {
+export type CSSObject = {
   [key: string]: string | number | CSSObject
 }
 
@@ -16,12 +16,12 @@ type CSSObject = {
  * @param element HTML element to apply the properties to
  *
 */
-export function css(styles: CSSObject, element?: HTMLElement): void {
+export function css(styles: CSSObject, element?: HTMLElement): string | void {
   const id = classId(styles)
 
   if (!checkForChanges(id)) return
 
-  addCss(objectToCss(styles, '.' + id), id, element)
+  return addCss(objectToCss(styles, '.' + id), id, element)
 }
 
 /**

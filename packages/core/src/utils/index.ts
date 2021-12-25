@@ -10,7 +10,11 @@ export function checkForChanges(id: string): boolean {
   return true
 }
 
-export function addCss(css: string, id: string, element?: HTMLElement): void {
+export function addCss(
+  css: string,
+  id: string,
+  element?: HTMLElement
+): string | void {
   if (typeof document === 'undefined') return
 
   const styleId = 'compositionjs-styles'
@@ -24,8 +28,12 @@ export function addCss(css: string, id: string, element?: HTMLElement): void {
   head.appendChild(style)
   style.appendChild(document.createTextNode(css))
 
-  // Add class to element
-  element?.classList.add(`.${id}`)
+  if (element) {
+    // Add class to element
+    element?.classList.add(id)
+  } else {
+    return id
+  }
 }
 
 function camelCaseToHyphen(string: string): string {
